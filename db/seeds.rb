@@ -25,13 +25,23 @@ posts = Post.all
 #Create Comments
 100.times do
   Comment.create!(
-  post: posts.sample,
-  body: RandomData.random_paragraph
+    post: posts.sample,
+    body: RandomData.random_paragraph
   )
 end
 
-Comment.create_with(Post.title: "This is a unique title").find_or_create_by!(body: "And this is a unique comment.")
+#Comment.create_with(Post.title: "This is a unique title").find_or_create_by!(body: "And this is a unique comment.")
+
+#Create Advertisements
+20.times do
+  Advertisement.create!(
+    title: RandomData.random_sentence,
+    copy: RandomData.random_paragraph,
+    price: rand(1..99)
+  )
+end
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Advertisement.count} advertisements created"
