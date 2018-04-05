@@ -11,9 +11,7 @@
       <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter question"%>
     </div>
     <div class="from-group">
-      <%= f.label "Resolved" %>
-      <%= check_box(@question, :resolved, options = {}, checked_value=true, unchecked_value=false) %>
-      <%= f.check_box :resolved %>
+      Mark as resolved? <%= f.check_box :resolved %>
     </div>
     <div class="from-group">
       <%= f.submit "Save", class: 'btn btn-success' %>
