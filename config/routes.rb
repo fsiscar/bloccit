@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :questions
 
   resources :advertisements
@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   get 'faq' => 'welcome#faq'
 
-  root 'welcome#index'
+  root 'posts#index'
 
  end
