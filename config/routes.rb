@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-
   resources :questions
-
   resources :advertisements
-
-  resources :posts
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   get 'about' => 'welcome#about'
 
@@ -12,6 +11,6 @@ Rails.application.routes.draw do
 
   get 'faq' => 'welcome#faq'
 
-  root 'posts#index'
+  root 'topics#index'
 
  end
