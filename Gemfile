@@ -47,6 +47,4 @@ end
 
 gem 'bootstrap-sass'
 
-gem 'materialize-sass'
-
 gem 'pry-rails', :group => :development
