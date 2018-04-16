@@ -33,38 +33,22 @@ end
 
 posts = Post.all
 
-#Create Comments
-100.times do
-  Comment.create!(
-    post: posts.sample,
-    body: RandomData.random_paragraph
+
+# Create SponsoredPosts
+20.times do
+  SponsoredPost.create!(
+    topic: topics.sample,
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph,
+    price: rand(1..99)
   )
 end
 
-#Comment.create_with(Post.title: "This is a unique title").find_or_create_by!(body: "And this is a unique comment.")
-#post.comments.find_or_create_by!(body: "And this is a unique comment.")
-
-# #Create Advertisements
-# 20.times do
-#   Advertisement.create!(
-#     title: RandomData.random_sentence,
-#     copy: RandomData.random_paragraph,
-#     price: rand(1..99)
-#   )
-# end
-
-#Create Questions
-# 20.times do
-#   Question.create!(
-#     title: RandomData.random_sentence,
-#     body: RandomData.random_paragraph,
-#     resolved: [true, false].sample
-#   )
-# end
 
 puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{SponsoredPost.count} sponsored_posts created"
 #puts "#{Advertisement.count} advertisements created"
 #puts "#{Question.count} questions created"
