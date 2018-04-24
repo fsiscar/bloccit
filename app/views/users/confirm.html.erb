@@ -1,6 +1,15 @@
 <h2>Sign up confirmation</h2>
-<h4>Are you sure these values are correct?</h4>
-<p>Emaill: <%= @user.email %></p>
-<p>Name: <%= @user.name %></p>
-<p><%= button_to "Yes", { controller: "users", action: "create", params: { user: user_params } }, class: 'btn btn-success' %></p>
-<p><%= button_to "No", {  } %></p>
+<div class="row">
+  </div class="col-md-4">
+    <h4>Are you sure these values are correct?</h4>
+    <p>Emaill: <%= @user.email %></p>
+    <p>Name: <%= @user.name %></p>
+  </div>
+</div>
+
+<div class="row">
+  </div class="col-md-4">
+  <p><%= button_to "Yes", { :controller => "users", :action => "create", :params => params}, class: 'btn btn-success' %></p>
+  <p><%= button_to "No", { controller: "users", action: "new" }, class: 'btn btn-failure' %></p>
+</div>
+</div>
