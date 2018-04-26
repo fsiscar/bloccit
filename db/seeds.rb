@@ -7,6 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'random_data'
 
+# Create Users
+5.times do
+  User.create!(
+    name:     RandomData.random_name,
+    email:    RandomData.random_email,
+    password: RandomData.random_sentence
+  )
+end
+users = User.all
+
 # Create Topics
 15.times do
   Topic.create!(
@@ -19,18 +29,12 @@ topics = Topic.all
 # Create Posts
 50.times do
   Post.create!(
+    user: users.sample,
     topic: topics.sample,
     title: RandomData.random_sentence,
     body: RandomData.random_paragraph
   )
 end
-
-#Create post with unique title and body
-# post = Post.find_or_create_by!(
-#   title: "This is a unique title",
-#   body: "This is a unique body for unique post."
-# )
-
 posts = Post.all
 
 #Create Comments
@@ -41,30 +45,14 @@ posts = Post.all
   )
 end
 
-#Comment.create_with(Post.title: "This is a unique title").find_or_create_by!(body: "And this is a unique comment.")
-#post.comments.find_or_create_by!(body: "And this is a unique comment.")
-
-# #Create Advertisements
-# 20.times do
-#   Advertisement.create!(
-#     title: RandomData.random_sentence,
-#     copy: RandomData.random_paragraph,
-#     price: rand(1..99)
-#   )
-# end
-
-#Create Questions
-# 20.times do
-#   Question.create!(
-#     title: RandomData.random_sentence,
-#     body: RandomData.random_paragraph,
-#     resolved: [true, false].sample
-#   )
-# end
+user = User.first
+user.update_attributes!(
+  email: 'fsiscar@outlook.com',
+  password: 'helloworld' 
+)
 
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-#puts "#{Advertisement.count} advertisements created"
-#puts "#{Question.count} questions created"
