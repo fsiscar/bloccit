@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502011550) do
+ActiveRecord::Schema.define(version: 20180502124959) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string "title"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20180502011550) do
     t.integer "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -83,6 +92,15 @@ ActiveRecord::Schema.define(version: 20180502011550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
+  end
+
+  create_table "vaforites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_vaforites_on_post_id"
+    t.index ["user_id"], name: "index_vaforites_on_user_id"
   end
 
   create_table "votes", force: :cascade do |t|
