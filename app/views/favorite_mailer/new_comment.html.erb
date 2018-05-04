@@ -9,10 +9,10 @@
       By: <%= @comment.user.name %>
     </small>
     <p>
-      <%= @coment.body %>
+      <%= @comment.body %>
     </p>
     <p>
-      <%= link_to "View Comment  on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
+      <%= link_to "View Comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
     </p>
   </body>
 </html>
